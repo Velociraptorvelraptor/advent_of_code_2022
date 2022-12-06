@@ -3,7 +3,7 @@ class SingleStack:
     Represents single stack of crates.
     Provides methods to manipulate crates within the stacks.
     """
-    def __init__(self, idx: int) -> None:
+    def __init__(self, idx: int):
         self.idx = idx
         self.stack = []
 
@@ -13,10 +13,10 @@ class SingleStack:
     def add_multiple_to_stack(self, list_of_elements: [str]):
         self.stack.extend(list_of_elements)
 
-    def remove_from_stack(self):
+    def remove_from_stack(self) -> str:
         return self.stack.pop()
 
-    def remove_multiple_from_stack(self, n: int):
+    def remove_multiple_from_stack(self, n: int) -> list[str]:
         popped_elements = []
         for _ in range(n):
             el = self.stack.pop()
@@ -37,7 +37,7 @@ class StackManager():
         for i in range(self.n_stacks):
             self.stacks[i + 1] = SingleStack(i)
 
-    def reverse_all_stacks(self) -> None:
+    def reverse_all_stacks(self):
         for i in range(self.n_stacks):
             self.stacks[i + 1].reverse_order()
 
