@@ -10,8 +10,18 @@ class SingleStack:
     def add_to_stack(self, element: str):
         self.stack.append(element)
 
+    def add_multiple_to_stack(self, list_of_elements: [str]):
+        self.stack.extend(list_of_elements)
+
     def remove_from_stack(self):
         return self.stack.pop()
+
+    def remove_multiple_from_stack(self, n: int):
+        popped_elements = []
+        for _ in range(n):
+            el = self.stack.pop()
+            popped_elements.insert(0, el)
+        return popped_elements
 
     def reverse_order(self):
         self.stack.reverse()
